@@ -100,6 +100,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# hide username & computer name
+# /private/etc/zshrc
+# Default prompt
+# PS1="%n@%m %1~ %# "
+# Remove "%n@%m" to get rid of both the username and computer name
+# Remove "%n" to get rid of the user name
+# Remove "%m" to get rid of the machine name
+
+# use vcs_info to get git branch
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats '%b'
+precmd() { vcs_info }
+setopt prompt_subst
+
+export PS1=$'\n%F{red}%f  %B%F{96}%~%f%b %F{cyan}${vcs_info_msg_0_}%f %F{240}[%*]%f %F{red}$%f '
+
 # for homebrew
 export PATH=/opt/homebrew/bin:$PATH
 
@@ -136,6 +153,9 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # for saran13raj cd
 alias saran13raj='cd ~/Desktop/workspace/saran13raj'
 
+# for tmux
+alias tkill='tmux kill-server'
+
 # for tmux vim
 alias tmuxvim2='~/.config/tmux-vim.sh'
 alias tmuxvim='~/.config/tmux-vim2.sh'
@@ -150,3 +170,8 @@ esac
 
 # for universal-ctags
 alias ctags="/opt/homebrew/Cellar/universal-ctags/p6.2.20250608.0/bin/ctags"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# for solana cli
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
