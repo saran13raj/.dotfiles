@@ -3,3 +3,16 @@ alt - 1 : open -a 'Ghostty'
 alt - 2 : open -a 'Brave Browser'
 alt - 3 : open -a 'Finder'
 
+######################
+
+# cmd - tab : yabai -m space --focus next
+# cmd - escape : yabai -m space --focus prev
+
+cmd - e : yabai -m space --toggle show-desktop
+
+cmd - g : yabai -m window --toggle zoom-fullscreen
+
+ctrl + alt - left : yabai -m window --swap west
+ctrl + alt - down : yabai -m window --swap south
+ctrl + alt - up : yabai -m window --swap north
+ctrl + alt - right : yabai -m window --swap east
