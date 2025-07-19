@@ -1,3 +1,4 @@
+
 # This is the configuration file for Ghostty.
 #
 # This template file has been automatically created at the following
@@ -42,21 +43,23 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = FrontEndDelight
+theme = GruvboxDarkHard
 font-family = "Fira Code"
 font-family-italic = "Courier New Italic"
 font-feature = -liga
-background-opacity = 0.92
+background = #141010
+background-opacity = 0.96
 background-blur = true
 split-divider-color = #f54
 font-size = 14
 font-thicken = true
+font-thicken-strength = 20
 window-decoration=true
 window-save-state = always
 adjust-cursor-thickness = 90%
-adjust-cell-height = 5%
+adjust-cell-height = 2%
 bold-is-bright = false
-foreground = #e5e5e5
+# foreground = #e5e5e5
 cursor-color = #f54
 cursor-text = #e5e5e5
 cursor-style = block
@@ -64,9 +67,12 @@ cursor-style = block
 # lazygit text color fix
 palette = 2=#1dbb9a
 
-palette = 6=#1daeec
+# palette = 6=#1daeec
 
 # for neovim to use alt (removes unicode functions for ghostty)
 macos-option-as-alt = true
 
 adjust-underline-position = 2
+
+
+
