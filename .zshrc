@@ -115,7 +115,7 @@ zstyle ':vcs_info:*' formats '%b'
 precmd() { vcs_info }
 setopt prompt_subst
 
-export PS1=$'\n%F{red}%f  %B%F{96}%~%f%b %F{cyan}${vcs_info_msg_0_}%f %F{240}[%*]%f %F{red}$%f '
+PROMPT=$'\n%F{red}%f  %B%F{96}%~%f%b %F{cyan} ${vcs_info_msg_0_}%f %F{240}[%*]%f %F{red}%? ✦%f '
 
 # for homebrew
 export PATH=/opt/homebrew/bin:$PATH
@@ -160,6 +160,9 @@ alias tkill='tmux kill-server'
 alias tmuxvim2='~/.config/tmux-vim.sh'
 alias tmuxvim='~/.config/tmux-vim2.sh'
 
+# for tmux fzf
+alias tfzf='~/.config/tfzf.sh'
+
 # pnpm
 export PNPM_HOME="/Users/saran13raj/Library/pnpm"
 case ":$PATH:" in
@@ -175,3 +178,11 @@ export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 # for solana cli
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+
+# for fzf - to use fd
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude node_modules --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# for w3m query
+alias '?'='~/.config/query.sh'
