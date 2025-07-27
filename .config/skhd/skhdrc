@@ -2,6 +2,8 @@
 alt - 1 : open -a 'Ghostty'
 alt - 2 : open -a 'Brave Browser'
 alt - 3 : open -a 'Finder'
+alt - 4 : open -a 'Activity Monitor'
+alt - 5 : open -a 'Firefox'
 
 ######################
 
