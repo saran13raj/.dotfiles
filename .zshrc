@@ -186,3 +186,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # for w3m query
 alias '?'='~/.config/query.sh'
+
+# for eza
+alias ls='eza -l --icons'
+
+# bash - brew
+export PATH="/opt/homebrew/bin:$PATH"
