@@ -1,0 +1,69 @@
+* {
+  background-color: #101010;
+  color: #dccfc0;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: CaskaydiaMono Nerd Font Propo;
+  font-size: 12px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+}
+
+#workspaces button:nth-child(odd) label {
+  color: #e8ffd7;
+}
+
+#workspaces button:nth-child(even) label {
+  color: #ea5b6f;
+}
+
+#tray,
+#cpu,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#clock,
+#custom-power-menu {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
+#custom-expand-icon {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+#cpu {
+  color: #78c841;
+}
+
+#memory {
+  color: #ff894f;
+}
+
+#disk {
+  color: #799eff;
+}
+
+#temperature {
+  color: #b12c00;
+}
