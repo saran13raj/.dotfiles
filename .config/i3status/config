@@ -9,6 +9,10 @@
 general {
         colors = true
         interval = 5
+
+		color_good = "#40c862"       # Green for "up" status
+		color_degraded = "#cc9356"   # Orange for degraded connections
+		color_bad = "#cc4444"        # Red for "down" status
 }
 
 # order += "ipv6"
@@ -59,5 +63,5 @@ volume master {
 
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%Y-%b-%d %H:%M:%S"
 }

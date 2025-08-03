@@ -112,6 +112,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -124,6 +125,12 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# Workspace assignments to specific outputs
+workspace $ws1 output DP-0
+workspace $ws2 output DP-2
+workspace $ws3 output DP-0
+workspace $ws4 output DP-2
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -192,6 +199,18 @@ bar {
 		position top
         status_command i3status
 		tray_output primary              # “primary” or an output name such as eDP1/HDMI1
+
+		colors {
+        # Status line text color
+        statusline #999999
+        
+        # Workspace button text colors
+        focused_workspace   #4c7899 #285577 #e0e0e0
+        active_workspace    #333333 #5f676a #e0e0e0
+        inactive_workspace  #333333 #222222 #e0e0e0
+        urgent_workspace    #2f343a #900000 #e0e0e0
+        binding_mode        #2f343a #900000 #e0e0e0
+    }
 }
 
 # display layout
