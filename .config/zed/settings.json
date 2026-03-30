@@ -1,0 +1,199 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "enable_language_server": false,
+  "outline_panel": {
+    "dock": "right",
+  },
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {},
+    },
+  },
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "default_model": {
+      "provider": "openrouter",
+      "model": "qwen/qwen-2.5-coder-32b-instruct:free",
+    },
+    "always_allow_tool_actions": false,
+    "model_parameters": [],
+    "use_modifier_to_send": true,
+  },
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "never",
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 14.5,
+  // "theme": {
+  //   "mode": "system",
+  //   "light": "Ayu Light",
+  //   "dark": "Ayu Dark"
+  // }
+  //
+  //
+  // custom
+  "theme": {
+    "mode": "dark",
+    "dark": "Paddy Wolf Dark",
+    "light": "Gruvbox Light",
+  },
+  "buffer_line_height": {
+    "custom": 1.25,
+  },
+  "buffer_font_family": "Fira Code",
+  "experimental.theme_overrides": {
+    "ghost_element.selected": "#351e47",
+    "editor.document_highlight.read_background": "#351e47",
+    // bg
+    "background": "#0f0f0f",
+    "editor.background": "#0f0f0f",
+    "editor.gutter.background": "#0f0f0f",
+    "surface.background": "#0f0f0f",
+    "elevated_surface.background": "#0f0f0f",
+    "panel.background": "#0f0f0f",
+    "title_bar.background": "#0f0f0f",
+    "title_bar.inactive_background": "#0f0f0f",
+    "toolbar.background": "#0f0f0f",
+    "tab_bar.background": "#0f0f0f",
+    "tab.inactive_background": "#0f0f0f",
+    "tab.active_background": "#0f0f0f",
+    "status_bar.background": "#0f0f0f",
+    "terminal.background": "#0f0f0f",
+  },
+  "cursor_blink": false,
+  "project_panel": {
+    "dock": "right",
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "tabs": {
+    "show_diagnostics": "all",
+  },
+  "git_panel": {
+    "dock": "right",
+  },
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["typescript-language-server", "!vtsls"],
+      "tab_size": 4,
+      "hard_tabs": true,
+      "preferred_line_length": 80,
+      "format_on_save": "on",
+    },
+    "TSX": {
+      "language_servers": [
+        "typescript-language-server",
+        "!vtsls",
+        "tailwindcss-language-server",
+      ],
+      "tab_size": 4,
+      "hard_tabs": true,
+      "preferred_line_length": 80,
+      "format_on_save": "on",
+    },
+    "JavaScript": {
+      "language_servers": ["typescript-language-server", "!vtsls"],
+      "tab_size": 4,
+      "hard_tabs": true,
+      "preferred_line_length": 80,
+      "format_on_save": "on",
+    },
+  },
+  "lsp": {
+    "typescript-language-server": {
+      "initialization_options": {
+        "maxTsServerMemory": 512,
+        "tsserver": {
+          "maxMemory": 512,
+        },
+        "preferences": {
+          "includeCompletionsWithInsertText": true,
+        },
+      },
+    },
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "agent_review": false,
+    "code_actions": false,
+    "quick_actions": false,
+    "selections_menu": false,
+  },
+  "title_bar": {
+    // "show_sign_in": false,
+    // "show_branch_name": false,
+    // "show_branch_icon": false,
+    // "show_project_items": false,
+    // "show_user_picture": false,
+    "show": "never",
+  },
+  // AI agents
+  "language_models": {
+    "open_router": {
+      "api_url": "https://openrouter.ai/api/v1",
+      "available_models": [
+        // coding model
+        {
+          "name": "qwen/qwen3-coder:free",
+          "display_name": "Qwen3 Coder -custom (Free)",
+          "max_tokens": 262144,
+          "supports_tools": true,
+        },
+        // general purpose model
+        {
+          "name": "qwen/qwen3-235b-a22b:free",
+          "display_name": "Qwen3 235B -custom (Free)",
+          "max_tokens": 131072,
+          "supports_tools": true,
+        },
+      ],
+    },
+  },
+
+  // new nvim config
+
+  // --- Editor behavior (ported from nvim options) ---
+  "line_numbers": "on",
+  "cursor_shape": "bar",
+  "wrap_guides": [80],
+  "soft_wrap": "none",
+  "show_whitespaces": "none",
+  "scroll_beyond_eof": false,
+  "vertical_scroll_margin": 10,
+  "use_smartcase_search": true,
+
+  // --- Vim keybindings (keymap.json equivalent, inline via vim.custom_keymaps) ---
+  // NOTE: Zed vim keymaps go in keymap.json, but editor-level vim bindings
+  // below cover what settings.json supports. For full keymap port,
+  // add the keymaps block in your keymap.json (see below).
+
+  "vim": {
+    "use_system_clipboard": "on_yank",
+    // Always keep cursor vertically centered after C-d / C-u (Zed handles natively in vim mode)
+    "use_multiline_find": true,
+    "use_smartcase_find": true,
+  },
+
+  // --- Terminal ---
+  "terminal": {
+    "line_height": {
+      "custom": 1.25,
+    },
+    "font_family": "Fira Code",
+    "font_size": 14.5,
+  },
+}

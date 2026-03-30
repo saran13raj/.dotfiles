@@ -1,0 +1,20 @@
+{
+  "Console Log": {
+    "prefix": "clg",
+    "body": ["console.log($1);"],
+    "description": "Console log with cursor inside parentheses"
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export const ${1:ComponentName}: React.FC = () => {",
+      "\treturn (",
+      "\t\t<div>$2</div>",
+      "\t);",
+      "}"
+    ],
+    "description": "React functional component with TypeScript"
+  }
+}

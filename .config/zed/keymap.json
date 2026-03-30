@@ -1,0 +1,367 @@
+[
+  {
+    "context": "Editor && vim_mode == insert && showing_completions",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion",
+    },
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion",
+    },
+  },
+  // {
+  //   "context": "Editor && inline_completion",
+  //   "bindings": {
+  //     "ctrl-y": "editor::AcceptInlineCompletion"
+  //   }
+  // },
+  // {
+  //   "context": "Editor && vim_mode == insert && !menu",
+  //   "bindings": {
+  //     "j k": ["vim::SwitchMode", "Normal"]
+  //   }
+  // },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "|": "pane::SplitRight",
+    },
+  },
+
+  // ─── NORMAL MODE ──────────────────────────────────────────────
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover",
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation",
+      "g t": "editor::GoToTypeDefinition",
+      "g n": "editor::Rename",
+    },
+  },
+
+  // Clear search highlights (nvim: <Esc> → nohlsearch)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "escape": "editor::ClearHighlights",
+    },
+  },
+
+  // Scroll with cursor centered (nvim: <C-d>zz / <C-u>zz)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-d": "vim::ScrollDown",
+      "ctrl-u": "vim::ScrollUp",
+    },
+  },
+
+  // Navigate tabs/buffers (nvim: gn / gN)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "g n": "pane::ActivateNextItem",
+      "g N": "pane::ActivatePrevItem",
+    },
+  },
+
+  // Close all other tabs (nvim: gbd → :%bd|edit#|bd#)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "g b d": "pane::CloseInactiveItems",
+    },
+  },
+
+  // Vertical split (nvim: | → :vsplit)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "|": "pane::SplitRight",
+    },
+  },
+
+  // Pane/window navigation (nvim: <C-h/j/k/l>)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+
+  // Delete without yanking (nvim: d → "_d)
+  // Note: Zed vim uses blackhole register for 'd' when use_system_clipboard is on_yank
+  // Explicit blackhole delete:
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "d": ["vim::PushOperator", { "Delete": { "register": "_" } }],
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "d": ["vim::DeleteSelection", { "register": "_" }],
+    },
+  },
+
+  // Move lines up/down (nvim: <A-j> / <A-k>)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+    },
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+    },
+  },
+
+  // Duplicate line up/down (nvim: <C-A-j> / <C-A-k>)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-alt-j": "editor::DuplicateLineDown",
+      "ctrl-alt-k": "editor::DuplicateLineUp",
+    },
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-alt-j": "editor::DuplicateLineDown",
+      "ctrl-alt-k": "editor::DuplicateLineUp",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "ctrl-alt-j": "editor::DuplicateLineDown",
+      "ctrl-alt-k": "editor::DuplicateLineUp",
+    },
+  },
+
+  // Toggle file tree / project panel (nvim: \ → NvimTreeToggle)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "\\": "workspace::ToggleRightDock",
+    },
+  },
+
+  // Harpoon-style: open file panel with <C-e> (nvim: <C-e> → harpoon list)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-e": "workspace::ToggleRightDock",
+    },
+  },
+
+  // ─── LEADER KEYMAPS (space = leader) ──────────────────────────
+
+  // File search (nvim: <leader>sf → telescope find_files)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s f": "file_finder::Toggle",
+    },
+  },
+
+  // Live grep (nvim: <leader>sg → telescope live_grep)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s g": "workspace::NewSearch",
+    },
+  },
+
+  // Search word under cursor (nvim: <leader>sw → telescope grep_string)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s w": "pane::DeploySearch",
+    },
+  },
+
+  // Recent files (nvim: <leader>s. → telescope oldfiles)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s .": "workspace::OpenRecent",
+    },
+  },
+
+  // Find existing buffers (nvim: <leader><leader> → telescope buffers)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space space": "tab_switcher::Toggle",
+    },
+  },
+
+  // Fuzzy search in current buffer (nvim: <leader>/ → current_buffer_fuzzy_find)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space /": "buffer_search::Deploy",
+    },
+  },
+
+  // Format buffer (nvim: <leader>f → conform.format)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space f": "editor::Format",
+    },
+  },
+
+  // Diagnostics list (nvim: <leader>q → vim.diagnostic.setloclist)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space q": "diagnostics::Deploy",
+    },
+  },
+
+  // Outline/symbols panel toggle (nvim: <leader>aa → AerialToggle)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space a a": "outline_panel::ToggleFocus",
+    },
+  },
+
+  // Document symbols (nvim: gO → lsp_document_symbols)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "g O": "outline::Toggle",
+    },
+  },
+
+  // Toggle inlay hints (nvim: <leader>th)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space t h": "editor::ToggleInlayHints",
+    },
+  },
+
+  // Git status panel (nvim: <leader>gs → neogit.open)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space g s": "git_panel::ToggleFocus",
+    },
+  },
+
+  // Git branches (nvim: <leader>gb → Telescope git_branches)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space g b": "branches::OpenRecent",
+    },
+  },
+
+  // Git hunk navigation (nvim: ]c / [c → gitsigns next/prev hunk)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "] c": "editor::GoToHunk",
+      "[ c": "editor::GoToPrevHunk",
+    },
+  },
+
+  // Git hunk stage/reset/preview (nvim: <leader>hs/hr/hp/hb/hd)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space h s": "editor::StageAndNext",
+      "space h r": "editor::RevertSelectedHunks",
+      "space h p": "editor::ToggleHunkDiff",
+      "space h b": "editor::ToggleGitBlame",
+      "space h d": "editor::ToggleHunkDiff",
+    },
+  },
+
+  // Toggle git blame line (nvim: <leader>tb → gitsigns.toggle_current_line_blame)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space t b": "editor::ToggleGitBlame",
+    },
+  },
+
+  // Treesitter incremental selection (nvim: <C-space> → init_selection / node_incremental)
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "ctrl-space": "editor::SelectLargerSyntaxNode",
+    },
+  },
+
+  // Shrink selection (nvim: <bs> → node_decremental)
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "backspace": "editor::SelectSmallerSyntaxNode",
+    },
+  },
+
+  // Jump to next/prev paragraph centered (nvim: { / } → {zz / }zz)
+  // Note: Zed handles paragraph jumps natively via vim mode { and }
+
+  // Search keymaps (nvim: <leader>sk)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s k": "zed::OpenKeymap",
+    },
+  },
+
+  // Search diagnostics (nvim: <leader>sd)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space s d": "diagnostics::Deploy",
+    },
+  },
+
+  // Harpoon file slots 1–5 → open tab by index (nvim: <leader>1-5)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space 1": "pane::ActivateItem0",
+      "space 2": "pane::ActivateItem1",
+      "space 3": "pane::ActivateItem2",
+      "space 4": "pane::ActivateItem3",
+      "space 5": "pane::ActivateItem4",
+    },
+  },
+
+  // Harpoon add/remove → Zed bookmarks equivalent (nvim: <leader>A / <leader>ad)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space A": "editor::ToggleTabBarSearchHighlight",
+      "space a d": "pane::CloseActiveItem",
+    },
+  },
+]
