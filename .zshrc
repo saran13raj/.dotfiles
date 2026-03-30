@@ -192,3 +192,9 @@ alias ls='eza -l --icons'
 
 # bash - brew
 export PATH="/opt/homebrew/bin:$PATH"
+
+# recursive file reader & copy
+alias rfr='~/.config/r-file-read.sh'
+
+# ls with folder size
+alias lsz='for f in *; do du -sh "$f"; done'
